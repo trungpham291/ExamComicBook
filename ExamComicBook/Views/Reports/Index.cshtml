@@ -1,0 +1,45 @@
+﻿@model IEnumerable<RentalReportViewModel>
+
+@{
+    ViewData["Title"] = "Rental Report";
+}
+
+<h1>Rental Report</h1>
+
+<form method="get" class="row mb-3">
+    <div class="col-md-3">
+        <label>From Date</label>
+        <input type="date" name="fromDate" class="form-control" />
+    </div>
+    <div class="col-md-3">
+        <label>To Date</label>
+        <input type="date" name="toDate" class="form-control" />
+    </div>
+    <div class="col-md-2 d-flex align-items-end">
+        <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+</form>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Comic Book</th>
+            <th>Rental Date</th>
+            <th>Return Date</th>
+            <th>Customer</th>
+            <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.BookName</td>
+                <td>@item.RentalDate.ToShortDateString()</td>
+                <td>@item.ReturnDate.ToShortDateString()</td>
+                <td>@item.CustomerName</td>
+                <td>@item.Quantity</td>
+            </tr>
+        }
+    </tbody>
+</table>

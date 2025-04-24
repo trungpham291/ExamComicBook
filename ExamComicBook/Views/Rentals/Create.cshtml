@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Rent a Comic Book";
+}
+
+<h1>Rent a Comic Book</h1>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label>Customer</label>
+        <select name="CustomerID" class="form-control" asp-items="ViewBag.CustomerID"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Rental Date</label>
+        <input name="RentalDate" class="form-control" type="date" />
+    </div>
+
+    <div class="form-group">
+        <label>Return Date</label>
+        <input name="ReturnDate" class="form-control" type="date" />
+    </div>
+
+    <div class="form-group">
+        <label>Comic Book</label>
+        <select name="ComicBookID" class="form-control" asp-items="ViewBag.ComicBookID"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Quantity</label>
+        <input name="Quantity" class="form-control" type="number" />
+    </div>
+
+    <button type="submit" class="btn btn-success mt-2">Rent</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary mt-2">Cancel</a>
+</form>
+
